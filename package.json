@@ -1,0 +1,15 @@
+{
+  "name": "auto-readme-generator",
+  "version": "1.0.0",
+  "description": "A node.js app that creates and writes a professional README file based on answers to predefined user prompted questions.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Shawn Meister",
+  "license": "MIT",
+  "dependencies": {
+    "inquirer": "^8.2.4",
+    "validator": "^13.11.0"
+  }
+}
