@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "A node.js app that creates and writes a professional README file based on answers to predefined user prompted questions.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

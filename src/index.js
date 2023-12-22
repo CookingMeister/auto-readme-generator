@@ -1,11 +1,12 @@
 // Packages needed for this application
-const inquirer = require("inquirer");
-const fs = require("fs");
-const validator = require("validator");
+import validator from "validator";
+import inquirer from "inquirer";
+import fs from "fs";
 
 // Array of questions for user input, validated for empty responses and correct email format
-const promptQuestions = () => {
-  return inquirer
+const promptQuestions = async () => {
+  try {
+    const answers = await inquirer
     .prompt([
       {
         type: "input",
@@ -112,15 +113,17 @@ const promptQuestions = () => {
         message: "Choose a license for your project:",
         choices: ["MIT", "Apache--2", "GPL--3", "None"],
       },
-    ])
-    .catch((err) => {
-      console.log(err);
-      throw err;
-    });
+    ]);
+    return answers;
+  } catch (err) {
+    console.log(err);
+    throw err;
+  }
 };
+
 // Generate a README file from the user input, return the content using template literals
 const generateREADME = (answers) => {
-return `# ${answers.title}
+  return `# ${answers.title}
 
 ## Description
 
@@ -159,12 +162,12 @@ ${answers.tests}
 ## Questions
 
 If you have any questions about this project, please contact me at [${
-  answers.email
-}](mailto:${
-  answers.email
-}). More of my work can be viewed at [GitHub](https://github.com/${
-  answers.github
-}).
+    answers.email
+  }](mailto:${
+    answers.email
+  }). More of my work can be viewed at [GitHub](https://github.com/${
+    answers.github
+  }).
 
 ## License
 
@@ -191,15 +194,17 @@ This project is licensed under the ${charsOnlyLicense} license.`;
 // Function to initialize the app
 const init = async () => {
   try {
+    // Wait for all questons to be answered
     const answers = await promptQuestions();
     const readme = generateREADME(answers);
-
-    await fs.promises.writeFile ("README.md", readme);
+    // Wait for above to be completed then write file
+    await fs.promises.writeFile("README.md", readme);
     console.log("README created!");
   } catch (err) {
     console.log("Error creating README:", err);
     throw err;
   }
 };
+
 // Initialize app
 init();
