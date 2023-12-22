@@ -22,7 +22,7 @@ To generate a README file, run `node index.js` and follow the prompts. A README.
 
 ## Demo
 
-The following video link shows the appearance and functionality of the app: [Auto-README generator demo](https://www.xxx.com)
+The following video link shows the appearance and functionality of the app: [Auto-README generator demo](https://www......)
 
 ## Credits
 
