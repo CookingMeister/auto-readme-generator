@@ -1,45 +1,35 @@
-# aa
+# Auto-README Generator
 
 ## Description
 
-aa
+A node.js app that creates and writes a professional README file based on answers to predefined user prompted questions.
 
 ## Table of Contents
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Demo](#demo)
 - [Credits](#credits)
-- [Contributing](#contributing)
-- [Tests](#tests)
-- [Questions](#questions)
 - [License](#license)
 
 ## Installation
 
-aa
+To install this app, clone the repository and run `npm install` to install dependencies.
 
 ## Usage
 
-aa
+To generate a README file, run `node index.js` and follow the prompts. A README.md file will be created in the root directory.
+
+## Demo
+
+The following video link shows the appearance and functionality of the app: [Auto-README generator demo](https://www.xxx.com)
 
 ## Credits
 
-aa
-
-## Contributing
-
-aa
-
-## Tests
-
-aa
-
-## Questions
-
-If you have any questions about this project, please contact me at [aa@aa.cc](mailto:aa@aa.cc). More of my work can be viewed at [GitHub](https://github.com/aa).
+This app was created by [CookingMeister](https://github.com/cookingmeister). It uses the inquirer, validator and fs modules. Npmjs.com was referenced for fs, validator and inquirer documentation. W3Schools was also referenced for markdown formatting best practices.
 
 ## License
 
-[![badge](https://img.shields.io/badge/license-Apache--2-brightgreen.svg)](https://opensource.org/licenses/apache--2)
+[![badge](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 
-This project is licensed under the Apache license.
+This project is licensed under the MIT license.
