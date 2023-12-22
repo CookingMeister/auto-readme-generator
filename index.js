@@ -120,54 +120,86 @@ const promptQuestions = () => {
 };
 // Generate a README file from the user input, return the content using template literals
 const generateREADME = (answers) => {
-    return `# ${answers.title}
-  
-  ## Description
-  
-  ${answers.description}
-  
-  ## Table of Contents
-  
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [Credits](#credits)
-  - [Contributing](#contributing)
-  - [Tests](#tests)
-  - [Questions](#questions)
-  - [License](#license)  
-  
-  ## Installation
-  
-  ${answers.installation}
-  
-  ## Usage
-  
-  ${answers.usage}
-  
-  ## Credits
-  
-  ${answers.credits}
-  
-  ## Contributing
-  
-  ${answers.contributing}
-  
-  ## Tests
-  
-  ${answers.tests}
-  
-  ## Questions
-  
-  If you have any questions about this project, please contact me at [${
-      answers.email
-    }](mailto:${
-      answers.email
-    }). More of my work can be viewed at [GitHub](https://github.com/${
-      answers.github
-    }).
-  
-  ## License
-  
-  ${renderLicenseSection(answers.license)}
-  `;
-  };
+return `# ${answers.title}
+
+## Description
+
+${answers.description}
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+- [Credits](#credits)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
+- [License](#license)  
+
+## Installation
+
+${answers.installation}
+
+## Usage
+
+${answers.usage}
+
+## Credits
+
+${answers.credits}
+
+## Contributing
+
+${answers.contributing}
+
+## Tests
+
+${answers.tests}
+
+## Questions
+
+If you have any questions about this project, please contact me at [${
+  answers.email
+}](mailto:${
+  answers.email
+}). More of my work can be viewed at [GitHub](https://github.com/${
+  answers.github
+}).
+
+## License
+
+${renderLicenseSection(answers.license)}
+`;
+};
+
+// Generate license section based on license selected
+const renderLicenseSection = (license) => {
+  return renderLicenseBadge(license);
+};
+
+// Generate badge and link for license section
+const renderLicenseBadge = (license) => {
+  // remove numbers and hyphens from license
+  const charsOnlyLicense = license.replace(/[0-9-]/g, "");
+  return license === "None"
+    ? "No license selected at this time."
+    : `[![badge](https://img.shields.io/badge/license-${license}-brightgreen.svg)](https://opensource.org/licenses/${license.toLowerCase()})
+    
+This project is licensed under the ${charsOnlyLicense} license.`;
+};
+
+// Function to initialize the app
+const init = async () => {
+  try {
+    const answers = await promptQuestions();
+    const readme = generateREADME(answers);
+
+    await fs.promises.writeFile ("README.md", readme);
+    console.log("README created!");
+  } catch (err) {
+    console.log("Error creating README:", err);
+    throw err;
+  }
+};
+// Initialize app
+init();
