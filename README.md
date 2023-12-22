@@ -2,7 +2,7 @@
 
 ## Description
 
-A node.js app that creates and writes a professional README file based on answers to predefined user prompted questions.
+A node.js app that creates and writes a professional README file based on validated answers to predefined user prompted questions.
 
 ## Table of Contents
 
@@ -18,7 +18,7 @@ To install this app, clone the repository and run `npm install` to install depen
 
 ## Usage
 
-To generate a README file, run `node index.js` and follow the prompts. A README.md file will be created in the root directory.
+To generate a README file, run `node index.js` and follow the prompts. A README.md file will be created in the same directory.
 
 ## Demo
 
