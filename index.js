@@ -118,3 +118,56 @@ const promptQuestions = () => {
       throw err;
     });
 };
+// Generate a README file from the user input, return the content using template literals
+const generateREADME = (answers) => {
+    return `# ${answers.title}
+  
+  ## Description
+  
+  ${answers.description}
+  
+  ## Table of Contents
+  
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Credits](#credits)
+  - [Contributing](#contributing)
+  - [Tests](#tests)
+  - [Questions](#questions)
+  - [License](#license)  
+  
+  ## Installation
+  
+  ${answers.installation}
+  
+  ## Usage
+  
+  ${answers.usage}
+  
+  ## Credits
+  
+  ${answers.credits}
+  
+  ## Contributing
+  
+  ${answers.contributing}
+  
+  ## Tests
+  
+  ${answers.tests}
+  
+  ## Questions
+  
+  If you have any questions about this project, please contact me at [${
+      answers.email
+    }](mailto:${
+      answers.email
+    }). More of my work can be viewed at [GitHub](https://github.com/${
+      answers.github
+    }).
+  
+  ## License
+  
+  ${renderLicenseSection(answers.license)}
+  `;
+  };
