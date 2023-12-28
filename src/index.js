@@ -6,8 +6,7 @@ import fs from "fs";
 // Array of questions for user input, validated for empty responses and correct email format
 const promptQuestions = async () => {
   try {
-    const answers = await inquirer
-    .prompt([
+    const answers = await inquirer.prompt([
       {
         type: "input",
         name: "title",
@@ -124,7 +123,9 @@ const promptQuestions = async () => {
 // Generate a README file from user input, return content using template literals
 const generateREADME = (answers) => {
   return `# ${answers.title}
-${(renderLicenseBadge(answers.license))}
+
+${renderLicenseBadge(answers.license)}
+
 ## Description
 
 ${answers.description}
@@ -177,21 +178,17 @@ ${renderLicenseSection(answers.license)}
 
 // Generate license section based on license selected
 const renderLicenseSection = (license) => {
-   // remove numbers and hyphens from license
-   const charsOnlyLicense = license.replace(/[0-9-]/g, "");
-   return license === "None"
-     ? "No license selected at this time."
-     : `This project is licensed under the ${charsOnlyLicense} license.`;
+  // remove numbers and hyphens from license
+  const charsOnlyLicense = license.replace(/[0-9-]/g, "");
+  return license === "None"
+    ? "No license selected at this time."
+    : `This project is licensed under the ${charsOnlyLicense} license.`;
 };
 
 // Generate badge and link for license section
 const renderLicenseBadge = (license) => {
   if (license !== "None") {
-    return `[![badge](https://img.shields.io/badge/license-${license}-brightgreen.svg)](https://opensource.org/licenses/${license.toLowerCase()})
-    [![npm](https://img.shields.io/npm/v/:auto-readme-generator-blue.svg)](https://www.npmjs.com)
-    [![Nodejs](https://img.shields.io/badge/node.js-v20.10.0-yellow.svg)](https://nodejs.org/)
-    
-    `;
+    return `[![badge](https://img.shields.io/badge/license-${license}-brightgreen.svg)](https://opensource.org/licenses/${license.toLowerCase()})`
   }
 };
 
