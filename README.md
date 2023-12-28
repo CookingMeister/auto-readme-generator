@@ -4,14 +4,6 @@
 
 A node.js app that creates and writes a professional README file based on validated answers to predefined user prompted questions.
 
-## Table of Contents
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Demo](#demo)
-- [Credits](#credits)
-- [License](#license)
-
 ## Installation
 
 To install this app, clone the repository and run `npm install` to install dependencies.

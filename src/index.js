@@ -1,4 +1,4 @@
-// Packages needed for this application
+// Packages needed for this app
 import validator from "validator";
 import inquirer from "inquirer";
 import fs from "fs";
@@ -121,7 +121,7 @@ const promptQuestions = async () => {
   }
 };
 
-// Generate a README file from the user input, return the content using template literals
+// Generate a README file from user input, return content using template literals
 const generateREADME = (answers) => {
   return `# ${answers.title}
 
@@ -201,7 +201,7 @@ const init = async () => {
     await fs.promises.writeFile("README.md", readme);
     console.log("README created!");
   } catch (err) {
-    console.log("Error creating README:", err);
+    console.log("Error creating README:" + err);
     throw err;
   }
 };
