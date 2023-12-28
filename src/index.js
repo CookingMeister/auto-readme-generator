@@ -124,7 +124,7 @@ const promptQuestions = async () => {
 // Generate a README file from user input, return content using template literals
 const generateREADME = (answers) => {
   return `# ${answers.title}
-
+${(renderLicenseBadge(answers.license))}
 ## Description
 
 ${answers.description}
@@ -177,18 +177,22 @@ ${renderLicenseSection(answers.license)}
 
 // Generate license section based on license selected
 const renderLicenseSection = (license) => {
-  return renderLicenseBadge(license);
+   // remove numbers and hyphens from license
+   const charsOnlyLicense = license.replace(/[0-9-]/g, "");
+   return license === "None"
+     ? "No license selected at this time."
+     : `This project is licensed under the ${charsOnlyLicense} license.`;
 };
 
 // Generate badge and link for license section
 const renderLicenseBadge = (license) => {
-  // remove numbers and hyphens from license
-  const charsOnlyLicense = license.replace(/[0-9-]/g, "");
-  return license === "None"
-    ? "No license selected at this time."
-    : `[![badge](https://img.shields.io/badge/license-${license}-brightgreen.svg)](https://opensource.org/licenses/${license.toLowerCase()})
+  if (license !== "None") {
+    return `[![badge](https://img.shields.io/badge/license-${license}-brightgreen.svg)](https://opensource.org/licenses/${license.toLowerCase()})
+    [![npm](https://img.shields.io/npm/v/:auto-readme-generator-blue.svg)](https://www.npmjs.com)
+    [![Nodejs](https://img.shields.io/badge/node.js-v20.10.0-yellow.svg)](https://nodejs.org/)
     
-This project is licensed under the ${charsOnlyLicense} license.`;
+    `;
+  }
 };
 
 // Function to initialize the app
