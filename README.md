@@ -18,7 +18,7 @@ To generate a README file, run `node index.js` and follow the prompts. A README.
 
 ## Demo
 
-The following video link shows the appearance and functionality of the app: [Auto-README generator demo](https://www......)
+The following video link shows the appearance and functionality of the app: [Auto-README generator demo](https://drive.google.com/file/d/1MIV_NJ32hEey-CxWOtyOtjsWy-G39EWE/view?usp=sharing)
 
 ## Credits
 
