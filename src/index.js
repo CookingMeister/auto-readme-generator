@@ -187,9 +187,9 @@ const renderLicenseSection = (license) => {
 
 // Generate badge and link for license section
 const renderLicenseBadge = (license) => {
-  if (license !== "None") {
-    return `[![badge](https://img.shields.io/badge/license-${license}-brightgreen.svg)](https://opensource.org/licenses/${license.toLowerCase()})`
-  }
+  return license !== "None"
+    ? `[![badge](https://img.shields.io/badge/license-${license}-brightgreen.svg)](https://opensource.org/licenses/${license.toLowerCase()})`
+    : "";
 };
 
 // Function to initialize the app

@@ -22,7 +22,7 @@ The following video link shows the appearance and functionality of the app: [Aut
 
 ## Credits
 
-This app was created by [CookingMeister](https://github.com/cookingmeister). It uses the inquirer, validator and fs modules. Npmjs.com was referenced for fs, validator and inquirer documentation. W3Schools was also referenced for markdown formatting best practices.
+This app was created by [CookingMeister](https://github.com/cookingmeister). It uses the inquirer, validator and fs modules. Npmjs.com was referenced for fs, validator and inquirer documentation. W3Schools was also referenced for markdown formatting best practices. Starter code and criteria were provided by the UNB Edx coding bootcamp, such as the readme template, .gitignore, function names and dependancies used.
 
 ## License
 
